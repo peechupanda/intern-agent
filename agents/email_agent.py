@@ -1,5 +1,5 @@
-"""
-Email Agent — Gmail-powered recruiter inbox monitor + AI draft responder
+﻿"""
+Email Agent â€” Gmail-powered recruiter inbox monitor + AI draft responder
 Monitors inbox for recruiter replies and drafts responses using Groq/Llama.
 
 Usage:
@@ -72,7 +72,7 @@ def get_gmail_service():
 
         with open(TOKEN_FILE, "w") as token:
             token.write(creds.to_json())
-        log.info("✅ Gmail authenticated — token saved to token.json")
+        log.info("âœ… Gmail authenticated â€” token saved to token.json")
 
     return build("gmail", "v1", credentials=creds)
 
@@ -97,7 +97,7 @@ def get_message_body(service, msg_id: str) -> str:
             if data:
                 return base64.urlsafe_b64decode(data).decode("utf-8", errors="ignore")
 
-        # Multi-part — look for text/plain
+        # Multi-part â€” look for text/plain
         for part in parts:
             if part.get("mimeType") == "text/plain":
                 data = part.get("body", {}).get("data", "")
@@ -131,7 +131,7 @@ def get_email_headers(msg: dict) -> dict:
 
 def fetch_recruiter_emails(service, max_results: int = 20) -> list[dict]:
     """Fetch unread emails likely from recruiters."""
-    log.info("📬 Scanning inbox for recruiter emails...")
+    log.info("ðŸ“¬ Scanning inbox for recruiter emails...")
 
     # Build Gmail search query
     keyword_query = " OR ".join(f'"{kw}"' for kw in RECRUITER_KEYWORDS[:10])
@@ -146,10 +146,10 @@ def fetch_recruiter_emails(service, max_results: int = 20) -> list[dict]:
 
         messages = results.get("messages", [])
         if not messages:
-            log.info("📭 No unread recruiter emails found")
+            log.info("ðŸ“­ No unread recruiter emails found")
             return []
 
-        log.info(f"📨 Found {len(messages)} potential recruiter email(s)")
+        log.info(f"ðŸ“¨ Found {len(messages)} potential recruiter email(s)")
 
         emails = []
         for m in messages:
@@ -179,7 +179,7 @@ def fetch_recruiter_emails(service, max_results: int = 20) -> list[dict]:
         return emails
 
     except HttpError as e:
-        log.error(f"❌ Gmail API error: {e}")
+        log.error(f"âŒ Gmail API error: {e}")
         return []
 
 
@@ -261,7 +261,7 @@ def run_email_agent(check_only: bool = False, max_emails: int = 10) -> list[dict
     Returns list of processed email results.
     """
     log.info("\n" + "="*60)
-    log.info("  Email Agent — Gmail Monitor + AI Drafter")
+    log.info("  Email Agent â€” Gmail Monitor + AI Drafter")
     log.info("="*60)
 
     # Load profile
@@ -275,7 +275,7 @@ def run_email_agent(check_only: bool = False, max_emails: int = 10) -> list[dict
     try:
         service = get_gmail_service()
     except Exception as e:
-        log.error(f"❌ Gmail auth failed: {e}")
+        log.error(f"âŒ Gmail auth failed: {e}")
         return []
 
     # Fetch recruiter emails
@@ -303,7 +303,7 @@ def run_email_agent(check_only: bool = False, max_emails: int = 10) -> list[dict
 
         if not check_only:
             try:
-                log.info("  🤖 Drafting reply with Llama...")
+                log.info("  ðŸ¤– Drafting reply with Llama...")
                 draft_body = draft_reply(email, profile)
                 result["draft_body"] = draft_body
 
@@ -316,20 +316,20 @@ def run_email_agent(check_only: bool = False, max_emails: int = 10) -> list[dict
                 )
                 result["draft_id"] = draft_id
 
-                log.info(f"  ✅ Draft saved (ID: {draft_id})")
+                log.info(f"  âœ… Draft saved (ID: {draft_id})")
                 log.info(f"\n  --- DRAFT PREVIEW ---")
                 log.info(draft_body[:300] + "..." if len(draft_body) > 300 else draft_body)
                 log.info(f"  ---------------------")
 
             except Exception as e:
-                log.error(f"  ❌ Draft failed: {e}")
+                log.error(f"  âŒ Draft failed: {e}")
                 result["error"] = str(e)
 
         results.append(result)
 
-    log.info(f"\n✅ Email agent complete — {len(results)} email(s) processed")
+    log.info(f"\nâœ… Email agent complete â€” {len(results)} email(s) processed")
     if not check_only:
-        log.info("  📝 Drafts saved to Gmail — review before sending!")
+        log.info("  ðŸ“ Drafts saved to Gmail â€” review before sending!")
 
     return results
 
@@ -341,7 +341,7 @@ def run_email_agent(check_only: bool = False, max_emails: int = 10) -> list[dict
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(message)s")
 
-    parser = argparse.ArgumentParser(description="Email Agent — Gmail monitor + AI drafter")
+    parser = argparse.ArgumentParser(description="Email Agent â€” Gmail monitor + AI drafter")
     parser.add_argument("--check-only", action="store_true",
                         help="Only list recruiter emails, don't draft replies")
     parser.add_argument("--auth-only", action="store_true",
@@ -352,6 +352,7 @@ if __name__ == "__main__":
 
     if args.auth_only:
         service = get_gmail_service()
-        log.info("✅ Authentication successful!")
+        log.info("âœ… Authentication successful!")
     else:
         run_email_agent(check_only=args.check_only, max_emails=args.max)
+
