@@ -1,0 +1,106 @@
+{
+  "personal": {
+    "name": "Pratyush Talwar",
+    "email": "talwarpratyush@gmail.com",
+    "phone": "+91 9871996110",
+    "location": "New Delhi, India",
+    "college": "Delhi Technological University",
+    "degree": "B.Tech — Information Technology",
+    "year": "1st year (2024–Present)",
+    "cgpa": 7.39
+  },
+
+  "skills": {
+    "languages": ["C", "C++", "Java", "Python", "JavaScript"],
+    "frontend": ["React.js", "HTML", "Tailwind CSS"],
+    "backend": ["Node.js", "Express.js"],
+    "databases": ["MongoDB", "MySQL"],
+    "devops_cloud": ["AWS EC2", "Docker", "Ansible", "GitHub Actions", "Linux", "Git", "YAML"],
+    "tools": ["Postman", "Socket.io", "CodeMirror", "JWT"],
+    "core_subjects": ["DSA", "DBMS", "OOP", "Operating Systems", "Distributed Systems"]
+  },
+
+  "projects": [
+    {
+      "name": "AI Chat Interface",
+      "stack": ["React.js", "Node.js", "Anthropic API", "Tailwind CSS", "MongoDB", "Docker", "AWS EC2"],
+      "highlights": [
+        "Full-stack AI chat app with Claude API integration",
+        "Streaming responses, session persistence, 100+ concurrent sessions",
+        "Deployed on AWS EC2 with Docker, sub-200ms latency, 99.9% uptime"
+      ]
+    },
+    {
+      "name": "Real-Time Code Collaboration Platform",
+      "stack": ["React.js", "Node.js", "Socket.io", "MongoDB", "JWT", "CodeMirror"],
+      "highlights": [
+        "20+ simultaneous users with operational transformation for conflict-free edits",
+        "Syntax highlighting for 10+ languages, JWT auth",
+        "WebSocket sync lag under 50ms across distributed users"
+      ]
+    },
+    {
+      "name": "DevOps Monitoring Dashboard",
+      "stack": ["Python", "React.js", "Docker", "Ansible", "AWS EC2", "GitHub Actions"],
+      "highlights": [
+        "Monitors 15+ EC2 instances in real time",
+        "Ansible automation reduced deployment time by 60%",
+        "Alerting via Slack/email, MTTD reduced by 40%"
+      ]
+    }
+  ],
+
+  "achievements": [
+    "JEE Mains 98.9+ percentile — top 1% of 1.2M+ candidates",
+    "300+ LeetCode problems solved (Easy/Medium/Hard)",
+    "School Head Boy — K.R. Mangalam World School",
+    "FIDE Rated Chess Player — Rating 1440",
+    "Coding Ninjas Top Performer — DSA & Java (Oct 2025)"
+  ],
+
+  "internship_preferences": {
+    "target_roles": [
+      "Software Development Engineer Intern (SDE)",
+      "Backend Developer Intern",
+      "Full Stack Developer Intern",
+      "DevOps / Cloud Intern",
+      "AI/ML Engineering Intern",
+      "Frontend Developer Intern",
+      "Platform Engineering Intern",
+      "Infrastructure Intern",
+      "Research Engineering Intern"
+    ],
+    "preferred_domains": ["any tech role"],
+    "open_to_remote": true,
+    "open_to_relocation": true,
+    "preferred_locations": ["New Delhi", "Bangalore", "Remote"],
+    "preferred_platforms": ["LinkedIn", "Unstop", "Internshala", "Wellfound", "HackerEarth"],
+    "hard_filters": [
+      "Skip roles requiring 2+ years experience",
+      "Skip unpaid roles unless company is in top_tier_companies list",
+      "Skip roles with deadline passed",
+      "Skip non-tech roles (HR, marketing, sales, operations)"
+    ],
+    "top_tier_companies": [
+      "Google", "Microsoft", "Meta", "Apple", "Amazon", "OpenAI", "Anthropic",
+      "DeepMind", "Adobe", "Salesforce", "Stripe", "Notion", "Figma",
+      "Zerodha", "CRED", "Razorpay", "Swiggy", "Zomato", "Meesho", "Groww"
+    ],
+    "minimum_fit_score": 65
+  },
+
+  "strengths_for_scoring": {
+    "strong_signals": [
+      "Full stack (React + Node + MongoDB)",
+      "AWS + Docker + DevOps tooling",
+      "Real-time systems (Socket.io, WebSockets)",
+      "AI API integration (Anthropic Claude)",
+      "Strong DSA (300+ LC, JEE 98.9%ile)"
+    ],
+    "gaps_to_flag": [
+      "No prior internship experience (1st year)",
+      "CGPA 7.39 — some companies filter below 7.5 or 8.0",
+      "No ML/AI model training experience (only API usage)"
+    ]
+  }
+}

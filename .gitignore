@@ -1,0 +1,6 @@
+venv/
+.env
+data/job_queue.json
+__pycache__/
+*.pyc
+.pytest_cache/
